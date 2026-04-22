@@ -15,11 +15,11 @@ private:
     std::list<Position> body;
 public:
         Snake();
-        Position getHeadPosition();
-        std::list<Position> getBodyPosition();
-        void setDirection(int newDx, int newDy);
-        void snakeMove(bool eaten);
-        bool checkSelfCollision();
+        Position GetHeadPosition();
+        std::list<Position> GetBodyPosition();
+        void SetDirection(int newDx, int newDy);
+        void SnakeMove(bool eaten);
+        bool CheckSelfCollision();
 
 
 };
