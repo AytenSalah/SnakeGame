@@ -56,10 +56,11 @@ void BoardManagement::renderBoard(const list<Position>& snake, Position food, in
 
 bool BoardManagement::borderCollision(const std::list<Position>& snake)
 {
-    Position head = snake.begin;
+    auto head = snake.begin();
 
-    if (head.x < 0 || head.x >= WIDTH ||
-        head.y < 0 || head.y >= HEIGHT) {
+    if (head->x < 0 || head->x >= WIDTH ||
+        head->y < 0 || head->y >= HEIGHT)
+    {
         return true;
     }
 
