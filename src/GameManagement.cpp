@@ -47,14 +47,6 @@ bool GameManagement::CheckFoodCollision()
 }
 
 
-
-bool GameManagement::CheckWallCollision()
-{
-    return board.BorderCollision(snake.GetBodyPosition());
-}
-
-
-
 bool GameManagement::CheckSelfCollision()
 {
     return snake.CheckSelfCollision();
@@ -96,11 +88,6 @@ void GameManagement::RunGame()
             food.GenerateFood(snake.GetBodyPosition());
             if(GAME_SPEED > 50 )
             {GAME_SPEED = GAME_SPEED -25;}
-        }
-
-        if (CheckWallCollision()) {
-            GameOver();
-            break;
         }
 
         if (CheckSelfCollision()) {
