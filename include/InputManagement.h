@@ -10,7 +10,7 @@ struct Direction
 class InputManagement
 {
 public:
-        Direction getInput();
+        Direction GetInput();
 
 
 };
