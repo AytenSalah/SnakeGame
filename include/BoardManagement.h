@@ -7,13 +7,13 @@ class BoardManagement
 private:
     const int WIDTH = 20;
     const int HEIGHT = 10;
-    void drawHorizontalBorder();
-    char renderHelper(int x, int y, const std::list<Position>& snake, Position food);
+    void DrawHorizontalBorder();
+    char RenderHelper(int x, int y, const std::list<Position>& snake, Position food);
 public:
-        void renderBoard(const std::list<Position>& snake, Position food, int score);
-        bool borderCollision(const std::list<Position>& snake);
-        int getWidth() { return WIDTH; }
-        int getHeight() { return HEIGHT; }
+        void RenderBoard(const std::list<Position>& snake, Position food, int score);
+        bool BorderCollision(const std::list<Position>& snake);
+        int GetWidth() { return WIDTH; }
+        int GetHeight() { return HEIGHT; }
 };
 
 
