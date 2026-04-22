@@ -9,7 +9,7 @@ Food::Food()
     food={0,0};
 }
 
-bool Food::isOnSnake(int x, int y, const std::list<Position>& snake)
+bool Food::IsOnSnake(int x, int y, const std::list<Position>& snake)
 {
     auto it = snake.begin();
 
@@ -26,17 +26,17 @@ bool Food::isOnSnake(int x, int y, const std::list<Position>& snake)
     return false;
 }
 
-void Food::generateFood(const std::list<Position>& snake) {
+void Food::GenerateFood(const std::list<Position>& snake) {
     int x, y;
     do {
         x = rand() % WIDTH;
         y = rand() % HEIGHT;
-    } while (isOnSnake(x, y, snake));
+    } while (IsOnSnake(x, y, snake));
 
     food = {x, y};
 }
 
-Position Food::getFoodPosition()
+Position Food::GetFoodPosition()
 {
     return food;
 }
