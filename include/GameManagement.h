@@ -23,7 +23,7 @@ private:
     GameState state;
     int currentDx, currentDy;
 
-    const int GAME_SPEED = 200;
+   int GAME_SPEED = 200;
 
     void HandleInput();
     bool IsValidDirection(int newDx, int newDy);
