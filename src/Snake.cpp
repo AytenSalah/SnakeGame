@@ -29,6 +29,16 @@ void Snake::SnakeMove(bool eaten)
         Position newHead;
         newHead.x=head.x+dx;
         newHead.y=head.y+dy;
+    if (newHead.x < 0)
+        newHead.x = 19;   
+
+    if (newHead.x >= 20)
+        newHead.x = 0;
+    if (newHead.y < 0)
+        newHead.y = 9;   
+
+    if (newHead.y >= 10)
+        newHead.y = 0;
         body.insert(body.begin(),newHead);
 
         if(!eaten)
@@ -37,20 +47,3 @@ void Snake::SnakeMove(bool eaten)
         }
 }
 
-bool Snake::CheckSelfCollision()
-{
-    Position head = body.front();
-
-    auto it = body.begin();
-    ++it;
-
-    while (it != body.end())
-    {
-        if (head.x == it->x && head.y == it->y)
-            return true;
-
-        ++it;
-    }
-
-    return false;
-}
