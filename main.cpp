@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
 GameManagement game;
-game.runGame();
+game.RunGame();
 
     return 0;
 }
