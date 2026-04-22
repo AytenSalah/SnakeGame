@@ -8,7 +8,8 @@
 
 enum GameState {
     Running,
-    GameOver
+    GameOver,
+    Paused
 };
 
 class GameManagement
@@ -23,8 +24,7 @@ private:
     GameState state;
     int currentDx, currentDy;
 
-   int GAME_SPEED = 200;
-
+    int GAME_SPEED;
     void HandleInput();
     bool IsValidDirection(int newDx, int newDy);
     bool CheckFoodCollision();
