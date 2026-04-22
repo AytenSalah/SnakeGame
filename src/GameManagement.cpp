@@ -13,7 +13,7 @@ GameManagement::GameManagement()
 }
 
 
-bool GameManagement::isValidDirection(int newDx, int newDy)
+bool GameManagement::IsValidDirection(int newDx, int newDy)
 {
     if (currentDx + newDx == 0 && currentDy + newDy == 0) {
         return false;
@@ -22,58 +22,58 @@ bool GameManagement::isValidDirection(int newDx, int newDy)
 }
 
 
-void GameManagement::handleInput()
+void GameManagement::HandleInput()
 {
-    Direction dir = input.getInput();
+    Direction dir = input.GetInput();
 
 
     if (dir.dx != 0 || dir.dy != 0) {
 
-        if (isValidDirection(dir.dx, dir.dy)) {
+        if (IsValidDirection(dir.dx, dir.dy)) {
             currentDx = dir.dx;
             currentDy = dir.dy;
-            snake.setDirection(currentDx, currentDy);
+            snake.SetDirection(currentDx, currentDy);
         }
 
     }
 }
 
-bool GameManagement::checkFoodCollision()
+bool GameManagement::CheckFoodCollision()
 {
-    Position head = snake.getHeadPosition();
-    Position foodPos = food.getFoodPosition();
+    Position head = snake.GetHeadPosition();
+    Position foodPos = food.GetFoodPosition();
 
     return (head.x == foodPos.x && head.y == foodPos.y);
 }
 
 
 
-bool GameManagement::checkWallCollision()
+bool GameManagement::CheckWallCollision()
 {
-    return board.borderCollision(snake.getBodyPosition());
+    return board.BorderCollision(snake.GetBodyPosition());
 }
 
 
 
-bool GameManagement::checkSelfCollision()
+bool GameManagement::CheckSelfCollision()
 {
-    return snake.checkSelfCollision();
+    return snake.CheckSelfCollision();
 }
 
 
 
-void GameManagement::updateScore()
+void GameManagement::UpdateScore()
 {
     score += 1;
 }
 
-void GameManagement::runGame()
+void GameManagement::RunGame()
 {
     currentDx = 1;
     currentDy = 0;
-    snake.setDirection(currentDx, currentDy);
+    snake.SetDirection(currentDx, currentDy);
 
-    food.generateFood(snake.getBodyPosition());
+    food.GenerateFood(snake.GetBodyPosition());
 
     score = 0;
 
@@ -85,37 +85,37 @@ void GameManagement::runGame()
 
     while (state == Running) {
 
-        handleInput();
+        HandleInput();
 
-        bool willEatFood = checkFoodCollision();
+        bool WillEatFood = CheckFoodCollision();
 
-        snake.snakeMove(willEatFood);
+        snake.SnakeMove(WillEatFood);
 
-        if (willEatFood) {
-            updateScore();
-            food.generateFood(snake.getBodyPosition());
+        if (WillEatFood) {
+            UpdateScore();
+            food.GenerateFood(snake.GetBodyPosition());
         }
 
-        if (checkWallCollision()) {
-            gameOver();
+        if (CheckWallCollision()) {
+            GameOver();
             break;
         }
 
-        if (checkSelfCollision()) {
-            gameOver();
+        if (CheckSelfCollision()) {
+            GameOver();
             break;
         }
 
         system("cls");
-        board.renderBoard(snake.getBodyPosition(), food.getFoodPosition(), score);
+        board.RenderBoard(snake.GetBodyPosition(), food.GetFoodPosition(), score);
 
         Sleep(GAME_SPEED);
     }
 }
 
-void GameManagement::gameOver()
+void GameManagement::GameOver()
 {
-    state = GameOver;
+    state = GameState::GameOver;
 
     system("cls");
 
@@ -134,9 +134,9 @@ void GameManagement::gameOver()
         currentDx = 1;
         currentDy = 0;
 
-        food.generateFood(snake.getBodyPosition());
+        food.GenerateFood(snake.GetBodyPosition());
 
-        runGame();
+        RunGame();
     }
     else if (choice == 'Q' || choice == 'q')
     {
