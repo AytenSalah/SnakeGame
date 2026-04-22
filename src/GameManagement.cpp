@@ -25,6 +25,7 @@ bool GameManagement::IsValidDirection(int newDx, int newDy)
 
 void GameManagement::HandleInput()
 {   
+    Direction dir = input.GetInput();
     char key = input.GetKey();
     if (key == 'p' || key == 'P')
     {
@@ -35,8 +36,6 @@ void GameManagement::HandleInput()
     {
         isPaused = false;
     }
-
-    Direction dir = input.GetInput();
     if (dir.dx != 0 || dir.dy != 0) {
 
         if (IsValidDirection(dir.dx, dir.dy)) {
