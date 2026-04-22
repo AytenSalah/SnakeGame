@@ -11,6 +11,7 @@ class InputManagement
 {
 public:
         Direction GetInput();
+        char GetKey();
 
 
 };
