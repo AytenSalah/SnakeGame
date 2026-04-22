@@ -10,6 +10,7 @@ GameManagement::GameManagement()
     state = Running;
     currentDx = 1;
     currentDy = 0;
+    GAME_SPEED = 200;
 }
 
 
@@ -23,10 +24,19 @@ bool GameManagement::IsValidDirection(int newDx, int newDy)
 
 
 void GameManagement::HandleInput()
-{
+{   
+    char key = input.GetKey();
+    if (key == 'p' || key == 'P')
+    {
+        isPaused = true;
+    }
+
+    if (key == 'r' || key == 'R')
+    {
+        isPaused = false;
+    }
+
     Direction dir = input.GetInput();
-
-
     if (dir.dx != 0 || dir.dy != 0) {
 
         if (IsValidDirection(dir.dx, dir.dy)) {
@@ -70,6 +80,7 @@ void GameManagement::RunGame()
     score = 0;
 
     state = Running;
+    isPaused = false;
 
     cout << "Game Started" << endl;
     cout << "Press any key to start" << endl;
@@ -78,6 +89,15 @@ void GameManagement::RunGame()
     while (state == Running) {
 
         HandleInput();
+    if (isPaused)
+        {
+            system("cls");
+            cout << "GAME PAUSED" << endl;
+            cout << "Press R to Resume" << endl;
+            Sleep(100);
+            continue;
+        }
+
 
         bool WillEatFood = CheckFoodCollision();
 
