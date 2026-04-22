@@ -25,17 +25,18 @@ private:
 
     const int GAME_SPEED = 200;
 
-    void handleInput();
-    bool isValidDirection(int newDx, int newDy);
-    bool checkFoodCollision();
-    bool checkWallCollision();
-    bool checkSelfCollision();
+    void HandleInput();
+    bool IsValidDirection(int newDx, int newDy);
+    bool CheckFoodCollision();
+    bool CheckWallCollision();
+    bool CheckSelfCollision();
 
 public:
     GameManagement();
-    void runGame();
-    void gameOver();
-    void updateScore();
+    void RunGame();
+    void GameOver();
+    void UpdateScore();
 };
 
 #endif
+
