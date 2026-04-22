@@ -9,12 +9,12 @@ private:
     Position food;
     const int WIDTH = 20;
     const int HEIGHT = 10;
-    bool isOnSnake(int x, int y, const std::list<Position>& snake);
+    bool IsOnSnake(int x, int y, const std::list<Position>& snake);
 
 public:
     Food();
-    void generateFood(const std::list<Position>& snake);
-    Position getFoodPosition();
+    void GenerateFood(const std::list<Position>& snake);
+    Position GetFoodPosition();
 };
 
 #endif
