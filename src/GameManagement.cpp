@@ -94,6 +94,8 @@ void GameManagement::RunGame()
         if (WillEatFood) {
             UpdateScore();
             food.GenerateFood(snake.GetBodyPosition());
+            if(GAME_SPEED > 50 )
+            {GAME_SPEED = GAME_SPEED -25;}
         }
 
         if (CheckWallCollision()) {
