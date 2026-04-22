@@ -1,0 +1,1 @@
+The Snake Game is a standalone, single-player application. The game operates within a defined board area and ends when the snake collides with boundaries or itself. The game’s primary goal is controlling the snake to eat food and achieve the highest score.
