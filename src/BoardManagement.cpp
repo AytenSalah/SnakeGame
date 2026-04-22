@@ -4,14 +4,14 @@ using namespace std;
 
 
 
-void BoardManagement::drawHorizontalBorder()
+void BoardManagement::DrawHorizontalBorder()
 {
     for(int i = 0; i < WIDTH + 2; i++)
         cout << "-";
        cout << endl;
 }
 
-char BoardManagement::renderHelper(int x, int y, const std::list<Position>& snake, Position food)
+char BoardManagement::RenderHelper(int x, int y, const std::list<Position>& snake, Position food)
 {
     auto it = snake.begin();
 
@@ -33,9 +33,9 @@ char BoardManagement::renderHelper(int x, int y, const std::list<Position>& snak
     return ' ';
 }
 
-void BoardManagement::renderBoard(const list<Position>& snake, Position food, int score)
+void BoardManagement::RenderBoard(const list<Position>& snake, Position food, int score)
 {
-    drawHorizontalBorder();
+    DrawHorizontalBorder();
 
     for(int y = 0; y < HEIGHT; y++)
     {
@@ -43,18 +43,18 @@ void BoardManagement::renderBoard(const list<Position>& snake, Position food, in
 
         for(int x = 0; x < WIDTH; x++)
         {
-            cout << renderHelper(x, y, snake, food);
+            cout << RenderHelper(x, y, snake, food);
         }
 
         cout << "|" << endl;
     }
 
-    drawHorizontalBorder();
+    DrawHorizontalBorder();
 
     cout << "Score: " << score << endl;
 }
 
-bool BoardManagement::borderCollision(const std::list<Position>& snake)
+bool BoardManagement::BorderCollision(const std::list<Position>& snake)
 {
     auto head = snake.begin();
 
