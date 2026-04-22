@@ -24,3 +24,12 @@ Direction InputManagement::getInput()
     }
     return{0,0};
 }
+
+char InputManagement::GetKey()  
+{
+    if (_kbhit())
+    {
+        return _getch();
+    }
+    return '\0';  
+}
