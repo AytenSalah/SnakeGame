@@ -9,21 +9,21 @@ Snake::Snake()
     dy=0;
 }
 
-Position Snake::getHeadPosition()
+Position Snake::GetHeadPosition()
 {
     return body.front();
 }
 
-std::list<Position> Snake::getBodyPosition() {
+std::list<Position> Snake::GetBodyPosition() {
     return body;
 }
 
-void Snake::setDirection(int newDx, int newDy) {
+void Snake::SetDirection(int newDx, int newDy) {
     dx = newDx;
     dy = newDy;
 }
 
-void Snake::snakeMove(bool eaten)
+void Snake::SnakeMove(bool eaten)
 {
         Position head = body.front();
         Position newHead;
@@ -37,12 +37,12 @@ void Snake::snakeMove(bool eaten)
         }
 }
 
-bool Snake::checkSelfCollision()
+bool Snake::CheckSelfCollision()
 {
     Position head = body.front();
 
     auto it = body.begin();
-    ++it; 
+    ++it;
 
     while (it != body.end())
     {
